@@ -1,0 +1,15 @@
+/* Styles pour les différentes tailles */
+.select-small {
+    width: 50px;
+    padding: 1px;
+}
+
+.select-medium {
+    width: 177px;
+    padding: 1px;
+}
+
+.select-large {
+    width: 400px;
+    padding: 1px;
+}

@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
+import './Select.css'
 
 export interface SelectProps {
   options: (string | { name: string; abbreviation: string })[];
   onChange: (value: string) => void;
   placeholder?: string;
   defaultValue?: string;
+  size?: 'small' | 'medium' | 'large';
+  color?: string;
+  background?: string;
 }
 
-export function Select({ options, onChange, placeholder, defaultValue }: Readonly<SelectProps>)  {
+export function Select({
+  options,
+  onChange,
+  placeholder,
+  defaultValue,
+  size = 'medium',
+  color,
+  background,
+}: Readonly<SelectProps>) {
   const [selectedValue, setSelectedValue] = useState<string>(defaultValue || '');
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -28,8 +40,20 @@ export function Select({ options, onChange, placeholder, defaultValue }: Readonl
 
   const formattedOptions = formatOptions();
 
+  const sizeClass = `select-${size}`;
+
+  const selectStyle: React.CSSProperties = {
+    color: color,
+    background: background,
+  };
+
   return (
-    <select value={selectedValue} onChange={handleChange} className="custom-select">
+    <select
+      value={selectedValue}
+      onChange={handleChange}
+      className={`custom-select ${sizeClass}`}
+      style={selectStyle}
+    >
       {placeholder && (
         <option value="" disabled>
           {placeholder}
@@ -42,4 +66,4 @@ export function Select({ options, onChange, placeholder, defaultValue }: Readonl
       ))}
     </select>
   );
-};
+}
