@@ -11,6 +11,11 @@ This repository was created for https://github.com/OpenClassrooms-Student-Center
 - Optional placeholder and default value.
 - Callback function to handle value changes.
 
+## Prerequisites
+
+- [Node JS version 18.16.1 or higher](https://nodejs.org/en/download/package-manager/current)
+
+
 ## Installation
 
 Install this package:
